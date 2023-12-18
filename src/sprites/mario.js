@@ -1,12 +1,13 @@
 export default class Mario extends Phaser.GameObjects.Sprite {
-    constructor(scene) {
-        super(scene, 100, 150, 'mario')
+    constructor(scene, positionX = 400, positionY = 0) {
+        super(scene, positionX, positionY, 'mario')
 
         this.scene = scene
         this.marioTurnedRight = true
         scene.physics.add.existing(this)
         scene.physics.world.enable(this)
         scene.add.existing(this)
+        this.alive = true
 
         this.setMarioBody()
         this.setMarioAnimation()
@@ -20,37 +21,41 @@ export default class Mario extends Phaser.GameObjects.Sprite {
     }
 
     update(keys) {
-        if (keys.left.isDown) {
-            this.body.setVelocityX(-160);
-            this.marioTurnedRight = false
-
-            if (keys.up.isDown) {
-                this.anims.play('jumpLeft', true)
-            } else {
-                this.anims.play('left', true)
+        if (this.alive) {
+            if (keys.left.isDown) {
+                this.body.setVelocityX(-160);
+                this.marioTurnedRight = false
+    
+                if (keys.up.isDown) {
+                    this.anims.play('jumpLeft', true)
+                } else {
+                    this.anims.play('left', true)
+                }
             }
-        }
-        else if (keys.right.isDown) {
-            this.body.setVelocityX(160);
-            this.marioTurnedRight = true
-
-            if (keys.up.isDown) {
-                this.anims.play('jumpRight', true)
-            } else {
-                this.anims.play('right', true)
+            else if (keys.right.isDown) {
+                this.body.setVelocityX(160);
+                this.marioTurnedRight = true
+    
+                if (keys.up.isDown) {
+                    this.anims.play('jumpRight', true)
+                } else {
+                    this.anims.play('right', true)
+                }
             }
-        }
-        else {
-            this.body.setVelocityX(0);
-            if (this.marioTurnedRight) {
-                this.anims.play('stopTurnedRight')
-            } else {
-                this.anims.play('stopTurnedLeft')
+            else {
+                this.body.setVelocityX(0);
+                if (this.marioTurnedRight) {
+                    this.anims.play('stopTurnedRight')
+                } else {
+                    this.anims.play('stopTurnedLeft')
+                }
             }
-        }
-
-        if (keys.up.isDown && this.body.touching.down) {
-            this.body.setVelocityY(-320)
+    
+            if (keys.up.isDown && this.body.touching.down) {
+                this.body.setVelocityY(-320)
+            }
+        } else {
+            this.anims.play('die', true)
         }
     }
 
@@ -102,5 +107,28 @@ export default class Mario extends Phaser.GameObjects.Sprite {
             frameRate: 20
             
         })
+
+        this.anims.create({
+            key: 'die',
+            frames: [{ key: 'mario', frame: 5 }],
+            frameRate: 20
+        })
+    }
+
+    die() {
+        this.alive = false
+        this.body.setVelocityY(-320)
+        this.body.setVelocityX(0)
+        this.body.setCollideWorldBounds(false)
+    }
+
+    respawn() {
+        this.alive = true
+        this.body.setCollideWorldBounds(true)
+        this.setPosition(100, 0)
+    }
+
+    isAlive() {
+        return this.alive
     }
 }

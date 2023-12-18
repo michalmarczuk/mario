@@ -1,8 +1,16 @@
 What should the page contain?
 
-- resume: https://pl.pinterest.com/pin/212443307415305213/
+
 - Blog
 - Zainteresowania
+
+
+
+Start page
+about me  -   picture
+
+start game
+
 
 
 
@@ -10,7 +18,7 @@ What should the page contain?
 Sky - nice bright platform
 
 
-about me
+
                              Respawn place
                                                             work experience
 
@@ -25,3 +33,25 @@ skills
 ----------------------------------------------------------------------
 
 Put somewhere bonus - resume download
+
+
+
+
+Mushrooms:
+opera
+2020-2020
+system engineer
+
+Work experience on top
+
+
+
+
+
+javascript
+python
+selenium
+playwright
+cypress
+jmeter
+SQL
