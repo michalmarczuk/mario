@@ -1,4 +1,3 @@
-import Phaser from 'phaser'
 import GameOver from '../dialogs/gameOver'
 import GameState from '../gameState'
 import MainPlatform from '../platforms/mainPlatform'
@@ -7,10 +6,12 @@ import Mario from '../sprites/mario'
 import CollidersManager from '../collidersManager'
 import Teleport from '../Tools/teleport'
 import SceneTeleport from '../Tools/sceneTeleport'
+import Scene from './scene'
 const path = require('path')
 
-export default class MainScene extends Phaser.Scene {    
+export default class MainScene extends Scene {    
     preload() {
+        super.preload()
         Mario.preload(this)
         Stinker.preload(this)
         MainPlatform.preload(this)
@@ -55,6 +56,8 @@ export default class MainScene extends Phaser.Scene {
         this.goToSkillsTeleport.setBackPoint(482, 544)
         this.goToSkillsTeleport.setOriginScene('mainScene')
         this.goToSkillsTeleport.setDestinationScene('skillsScene')
+
+        super.create()
     }
 
     //Good idea would be to create getters for more stuff here
@@ -74,6 +77,6 @@ export default class MainScene extends Phaser.Scene {
         this.goToEducationAndCertificatesTeleport.update()
         this.goToSkillsTeleport.update()
 
-        console.log(this.player.body.position.x, this.player.body.position.y)
+        // console.log(this.player.body.position.x, this.player.body.position.y)
     }
 }

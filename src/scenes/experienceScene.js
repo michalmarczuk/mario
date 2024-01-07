@@ -1,4 +1,3 @@
-import Phaser from 'phaser'
 import GameOver from '../dialogs/gameOver';
 import GameState from '../gameState';
 import ExperiencePlatform from '../platforms/experiencePlatform';
@@ -6,10 +5,12 @@ import Stinker from '../sprites/stinker'
 import Mario from '../sprites/mario';
 import CollidersManager from '../collidersManager';
 import SceneTeleport from '../Tools/sceneTeleport'
+import Scene from './scene';
 const path = require('path');
 
-export default class ExperienceScene extends Phaser.Scene {   
+export default class ExperienceScene extends Scene {   
     preload() {
+        super.preload()
         Mario.preload(this)
         Stinker.preload(this)
         ExperiencePlatform.preload(this)
@@ -33,6 +34,8 @@ export default class ExperienceScene extends Phaser.Scene {
         this.goToMainTeleport.setBackPoint(this.startPositionX, this.startPositionY)
         this.goToMainTeleport.setOriginScene('experienceScene')
         this.goToMainTeleport.setDestinationScene('mainScene')
+
+        super.create()
     }
 
     getColliderManager() {

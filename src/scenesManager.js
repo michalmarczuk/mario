@@ -17,7 +17,7 @@ export default class ScenesManager {
             state: 'added'
         })
 
-        console.log(`${sceneName} registered`)
+        // console.log(`${sceneName} registered`)
     }
 
     startScene(sceneName) {
@@ -29,7 +29,7 @@ export default class ScenesManager {
             GameFactory.getGame().scene.wake(sceneName)
         }
 
-        console.log(`${sceneName} ${scene.state} ==> started`)
+        // console.log(`${sceneName} ${scene.state} ==> started`)
         scene.state = 'started'
     }
 
@@ -41,6 +41,6 @@ export default class ScenesManager {
         } 
 
         scene.state = 'stoped'
-        console.log(`${sceneName} ${scene.state}`)
+        // console.log(`${sceneName} ${scene.state}`)
     }
 }
