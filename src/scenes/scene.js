@@ -12,6 +12,8 @@ export default class Scene extends Phaser.Scene {
         this.generateLink('linkedin_logo', 'https://www.linkedin.com/in/michalmarczuk', this.cameras.main.width - 12, 26)
         this.generateLink('github_logo', 'https://github.com/michalmarczuk', this.cameras.main.width - 45, 26)
         this.generateLink('run_blog_sh_logo', 'https://run-blog.sh', this.cameras.main.width - 78, 26)
+
+        this.add.text(182, 26, `www.marczuk.org //Designed by Michał Marczuk ©${new Date().getFullYear()}`, { fontSize: 12, fill: '#FFF' }).setOrigin(0.5)
     }
 
     generateLink(imageRef, url, x, y) {
