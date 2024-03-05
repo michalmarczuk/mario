@@ -1,11 +1,9 @@
-import CollidersManager from "../collidersManager"
 import Factory from "../Tools/gameFactory";
 
 export default class Stinker extends Phaser.GameObjects.Sprite {
     constructor(respawnX, respawnY, respawnTime, scene) {
         super(scene, respawnX, respawnY, 'stinker')
 
-        // this.collidersManager = new CollidersManager();
         this.collidersManager = scene.getColliderManager()
         this.scene = scene
         scene.physics.add.existing(this)
@@ -16,6 +14,7 @@ export default class Stinker extends Phaser.GameObjects.Sprite {
 
         this.body.setBounceX(1)
         this.body.setGravityY(500)
+        this.depth = 1
         this.id = Math.random().toString(36).substring(2,15)
 
         this.anims.create({

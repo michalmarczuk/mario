@@ -36,6 +36,17 @@ export default class CollidersManager {
         }
     }
 
+    registerCoin(coin) {
+        this.scene.physics.add.collider(coin, this.platforms)
+        this.scene.physics.add.collider(this.player, coin, collected, null, this)
+
+        function collected(player, coin) {
+            if (coin.body.touching && player.body.touching) {
+                coin.collect()
+            }
+        }
+    }
+
     respawnEnemy(enemy) {
         this.enemies.find(e => e.id === enemy.getId()).collider.active = true
     }

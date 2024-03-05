@@ -7,6 +7,7 @@ export default class Mario extends Phaser.GameObjects.Sprite {
         scene.physics.add.existing(this)
         scene.physics.world.enable(this)
         scene.add.existing(this)
+        this.depth = 5
         this.alive = true
 
         this.setMarioBody()

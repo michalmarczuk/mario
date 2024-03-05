@@ -7,6 +7,7 @@ import CollidersManager from '../collidersManager'
 import Teleport from '../Tools/teleport'
 import SceneTeleport from '../Tools/sceneTeleport'
 import Scene from './scene'
+import Coin from '../sprites/coin'
 const path = require('path')
 
 export default class MainScene extends Scene {    
@@ -14,6 +15,7 @@ export default class MainScene extends Scene {
         super.preload()
         Mario.preload(this)
         Stinker.preload(this)
+        Coin.preload(this)
         MainPlatform.preload(this)
     }
 
@@ -34,6 +36,31 @@ export default class MainScene extends Scene {
         this.collidersManager.registerEnemy(new Stinker(500, 0, 1000, this))
         this.collidersManager.registerEnemy(new Stinker(935, 447, 1000, this))
         this.collidersManager.registerEnemy(new Stinker(970, 447, 1000, this))
+
+        this.collidersManager.registerCoin(new Coin(392, 363, this))
+        this.collidersManager.registerCoin(new Coin(412, 363, this))
+        this.collidersManager.registerCoin(new Coin(432, 363, this))
+        this.collidersManager.registerCoin(new Coin(452, 363, this))
+        this.collidersManager.registerCoin(new Coin(472, 363, this))
+        this.collidersManager.registerCoin(new Coin(492, 363, this))
+        this.collidersManager.registerCoin(new Coin(512, 363, this))
+        this.collidersManager.registerCoin(new Coin(532, 363, this))
+        this.collidersManager.registerCoin(new Coin(552, 363, this))
+        this.collidersManager.registerCoin(new Coin(572, 363, this))
+
+        this.collidersManager.registerCoin(new Coin(747, 207, this))
+        this.collidersManager.registerCoin(new Coin(767, 207, this))
+
+        this.collidersManager.registerCoin(new Coin(103, 608, this))
+
+        this.collidersManager.registerCoin(new Coin(380, 555, this))
+        this.collidersManager.registerCoin(new Coin(400, 555, this))
+        this.collidersManager.registerCoin(new Coin(420, 555, this))
+        this.collidersManager.registerCoin(new Coin(440, 555, this))
+        
+        this.collidersManager.registerCoin(new Coin(747, 534, this))
+        this.collidersManager.registerCoin(new Coin(767, 534, this))
+        this.collidersManager.registerCoin(new Coin(787, 534, this))
 
         this.upDownTeleport = new Teleport(this.player)
         this.upDownTeleport.setEntryPoint(0, 352)
