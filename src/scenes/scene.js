@@ -13,7 +13,7 @@ export default class Scene extends Phaser.Scene {
         this.generateLink('github_logo', 'https://github.com/michalmarczuk', this.cameras.main.width - 45, 26)
         this.generateLink('run_blog_sh_logo', 'https://run-blog.sh', this.cameras.main.width - 78, 26)
 
-        this.add.text(182, 26, `www.marczuk.org //Designed by Michał Marczuk ©${new Date().getFullYear()}`, { fontSize: 12, fill: '#FFF' }).setOrigin(0.5)
+        this.add.text(260, 22, `www.marczuk.org //Designed by Michał Marczuk ©${new Date().getFullYear()}`, { fontFamily: 'supply_center', fontSize: 12, fill: '#FFF' }).setOrigin(0.5)
     }
 
     generateLink(imageRef, url, x, y) {
@@ -24,5 +24,14 @@ export default class Scene extends Phaser.Scene {
         link.on('pointerdown', () => window.open(url, "_blank"))
         link.on('pointerover', () => document.querySelector('body').style.cursor = 'pointer')
         link.on('pointerout', () => document.querySelector('body').style.cursor = 'default')
+    }
+
+    loadFont(name, file) {
+        var newFont = new FontFace(name, file);
+        newFont.load().then(function (loaded) {
+            document.fonts.add(loaded);
+        }).catch(function (error) {
+            return error;
+        });
     }
 }

@@ -1,5 +1,3 @@
-import GameOver from '../dialogs/gameOver';
-import GameState from '../gameState';
 import ExperiencePlatform from '../platforms/experiencePlatform';
 import Stinker from '../sprites/stinker'
 import Mario from '../sprites/mario';
@@ -18,8 +16,6 @@ export default class ExperienceScene extends Scene {
 
     create() {
         this.cursors = this.input.keyboard.createCursorKeys()
-        this.gameState = new GameState()
-        this.gameOver = new GameOver(this.gameState, this, this.cursors)
         this.canvasWidth = this.sys.game.canvas.width
         this.canvasHeight = this.sys.game.canvas.height
 
@@ -43,12 +39,7 @@ export default class ExperienceScene extends Scene {
     }
 
     update() {
-        if (this.gameState.isGameOver) {
-            this.gameOver.update()            
-        } else {
-            this.player.update(this.cursors)
-        }
-        
+        this.player.update(this.cursors)
         this.goToMainTeleport.update()
 
         // console.log(this.player.body.position.x, this.player.body.position.y)

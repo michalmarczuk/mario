@@ -6,3 +6,10 @@ canvas {
     display: block;   
     margin: auto;
 }
+
+@font-face {
+    font-family: supply_center;
+    src: url('assets/fonts/supply_center.ttf');
+    /* font-weight: 200;
+    font-weight: normal; */
+}

@@ -1,5 +1,3 @@
-import GameOver from '../dialogs/gameOver'
-import GameState from '../gameState'
 import MainPlatform from '../platforms/mainPlatform'
 import Stinker from '../sprites/stinker'
 import Mario from '../sprites/mario'
@@ -21,8 +19,6 @@ export default class MainScene extends Scene {
 
     create() {
         this.cursors = this.input.keyboard.createCursorKeys()
-        this.gameState = new GameState()
-        this.gameOver = new GameOver(this.gameState, this, this.cursors)
         this.canvasWidth = this.sys.game.canvas.width
         this.canvasHeight = this.sys.game.canvas.height
 
@@ -93,12 +89,7 @@ export default class MainScene extends Scene {
     }
 
     update() {
-        if (this.gameState.isGameOver) {
-            this.gameOver.update()            
-        } else {
-            this.player.update(this.cursors)
-        }
-
+        this.player.update(this.cursors)
         this.upDownTeleport.update()        
         this.goToWorkExperienceTeleport.update()
         this.goToEducationAndCertificatesTeleport.update()
