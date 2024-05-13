@@ -19,9 +19,6 @@ export default class ExperiencePlatform {
         // Pipes
         new Pipe('left', 1170, 692, this.solidPlatforms, this.ghostPlatforms)
 
-        // Title
-        scene.add.text(50, 75, `Experience`, { fontSize: 22, fill: '#FFF' })
-
         new DescriptionMushroom(5, 4, 120, 703, scene, {
             company: 'mmarczuk://',
             title: 'QA Engineer',

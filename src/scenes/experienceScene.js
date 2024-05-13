@@ -31,7 +31,7 @@ export default class ExperienceScene extends Scene {
         this.goToMainTeleport.setOriginScene('experienceScene')
         this.goToMainTeleport.setDestinationScene('mainScene')
 
-        super.create()
+        super.create('Experience')
     }
 
     getColliderManager() {

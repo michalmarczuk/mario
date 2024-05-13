@@ -1,4 +1,5 @@
 import Phaser from 'phaser'
+import BBCodeTextPlugin from 'phaser3-rex-plugins/plugins/bbcodetext-plugin.js';
 
 export default class GameFactory {
     static game = new Phaser.Game({
@@ -19,6 +20,15 @@ export default class GameFactory {
                 },
                 debug: false
             }
+        },
+        plugins: {
+            global: [
+                {
+                    key: 'rexBBCodeTextPlugin',
+                    plugin: BBCodeTextPlugin,
+                    start: true
+                },
+            ]
         }
     })
 

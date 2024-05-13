@@ -80,7 +80,7 @@ export default class MainScene extends Scene {
         this.goToSkillsTeleport.setOriginScene('mainScene')
         this.goToSkillsTeleport.setDestinationScene('skillsScene')
 
-        super.create()
+        super.create('Discover my experience, skills and education by entering the pipes')
     }
 
     //Good idea would be to create getters for more stuff here

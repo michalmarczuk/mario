@@ -60,9 +60,6 @@ export default class EducationAndCertificatesPlatform {
 
         // Pipes
         new Pipe('left', 1170, 650, this.solidPlatforms, this.ghostPlatforms)
-
-        // Test
-        scene.add.text(50, 75, `Education and Certificates`, { fontSize: 22, fill: '#FFF' })
     }
 
     static preload(scene) {

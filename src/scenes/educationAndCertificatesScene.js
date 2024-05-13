@@ -31,7 +31,7 @@ export default class EducationAndCertificatesScene extends Scene {
         this.goToMainTeleport.setOriginScene('educationAndCertificatesScene')
         this.goToMainTeleport.setDestinationScene('mainScene')
 
-        super.create()
+        super.create('Education and Certificates')
     }
 
     getColliderManager() {

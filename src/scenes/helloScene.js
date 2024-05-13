@@ -35,7 +35,7 @@ export default class HelloScene extends Scene {
         this.goToMainTeleport.setOriginScene('helloScene')
         this.goToMainTeleport.setDestinationScene('mainScene')
 
-        super.create()
+        super.create('Use arrow keys ⬅⬆⮕ to move')
     }
 
     initPlatform() {

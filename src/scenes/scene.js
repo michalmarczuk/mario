@@ -1,4 +1,6 @@
 import Phaser from 'phaser'
+import MarioTextGenerator from '../Tools/marioTextGenerator';
+
 const path = require('path')
 
 export default class Scene extends Phaser.Scene {   
@@ -8,12 +10,13 @@ export default class Scene extends Phaser.Scene {
         this.load.image('github_logo', 'github_logo.png')
     }
 
-    create() {
-        this.generateLink('linkedin_logo', 'https://www.linkedin.com/in/michalmarczuk', this.cameras.main.width - 12, 26)
-        this.generateLink('github_logo', 'https://github.com/michalmarczuk', this.cameras.main.width - 45, 26)
-        this.generateLink('run_blog_sh_logo', 'https://run-blog.sh', this.cameras.main.width - 78, 26)
+    create(bottomCustomText) {
+        this.generateLink('linkedin_logo', 'https://www.linkedin.com/in/michalmarczuk', this.cameras.main.width - 12, 23)
+        this.generateLink('github_logo', 'https://github.com/michalmarczuk', this.cameras.main.width - 45, 23)
+        this.generateLink('run_blog_sh_logo', 'https://run-blog.sh', this.cameras.main.width - 78, 23)
 
-        this.add.text(260, 22, `www.marczuk.org //Designed by Michał Marczuk ©${new Date().getFullYear()}`, { fontFamily: 'supply_center', fontSize: 12, fill: '#FFF' }).setOrigin(0.5)
+        MarioTextGenerator.add(2, 10, `www.marczuk.org //Designed by Michał Marczuk ©${new Date().getFullYear()}`, 15, this)
+        MarioTextGenerator.add(2, 760, bottomCustomText, 15, this)
     }
 
     generateLink(imageRef, url, x, y) {

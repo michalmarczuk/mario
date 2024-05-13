@@ -56,7 +56,7 @@ export default class SkillsScene extends Scene {
         this.goToMainTeleport.setOriginScene('skillsScene')
         this.goToMainTeleport.setDestinationScene('mainScene')
 
-        super.create()
+        super.create('Skills')
     }
 
     initPlatform() {
@@ -75,9 +75,6 @@ export default class SkillsScene extends Scene {
 
         // Pipes
         new Pipe('left', 1170, 692, this.solidPlatforms, this.ghostPlatforms)
-
-        // Title
-        this.add.text(50, 75, `Skills`, { fontSize: 22, fill: '#FFF' })
     }
 
     getColliderManager() {
