@@ -1,3 +1,4 @@
+import GameAnalytics from 'gameanalytics'
 import GameFactory from './Tools/gameFactory'
 
 export default class ScenesManager {
@@ -8,6 +9,9 @@ export default class ScenesManager {
         
         ScenesManager._instance = this
         this.scenes = []
+
+        GameAnalytics.GameAnalytics.initialize('50000bbf291fe26f6fa1f442d7d21992', 'e347bb03164046bc4e6bba5e8432adee83600252')
+        GameAnalytics.GameAnalytics.setEnabledInfoLog(true)
     }
 
     registerScene(sceneName, classRef) {
@@ -29,8 +33,8 @@ export default class ScenesManager {
             GameFactory.getGame().scene.wake(sceneName)
         }
 
-        // console.log(`${sceneName} ${scene.state} ==> started`)
         scene.state = 'started'
+        GameAnalytics.GameAnalytics.addProgressionEvent(GameAnalytics.EGAProgressionStatus.Start, sceneName)
     }
 
     stopScene(sceneName) {
@@ -41,6 +45,6 @@ export default class ScenesManager {
         } 
 
         scene.state = 'stoped'
-        // console.log(`${sceneName} ${scene.state}`)
+        GameAnalytics.GameAnalytics.addProgressionEvent(GameAnalytics.EGAProgressionStatus.Complete, sceneName)
     }
 }
